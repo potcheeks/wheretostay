@@ -3,8 +3,6 @@
 //* =======================================
 const express = require("express"); 
 const mongoose = require("mongoose");
-const session = require("express-session");
-const cors = require("cors");
 const methodOverride = require("method-override");
 const path = require('path');
 
@@ -13,21 +11,15 @@ const path = require('path');
 //* =======================================
 require("dotenv").config();
 const PORT = process.env.PORT;
-const mongodbURI = process.env.MONGODB_URI;
+const mongodbURI = process.env.mongodbURI;
 
 //* =======================================
 //*        BODY PARSER, MIDDLEWARE
 //* =======================================
 const app = express();
-app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "/client/build")));
+app.use(express.static("public"));
 app.use(methodOverride("_method"));
-
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
-});
 
 //* =======================================
 //*            MONGOOSE CONNECTION
@@ -35,8 +27,6 @@ app.get("/", (req, res) => {
 mongoose.connect(mongodbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
 });
 
 mongoose.connection.on("error", (err) =>
@@ -52,8 +42,8 @@ mongoose.connection.once("open", () => {
 //* =======================================
 //*         CONTROLLERS/ROUTES
 //* =======================================
-const postsController = require("./controllers/directory.js");
-app.use("/v1/posts", postsController); //only users can post
+const directoryController = require("./controllers/directoryController.js");
+app.use("/directory", directoryController); 
 
 
 //* =======================================

@@ -8,8 +8,8 @@ const directorySchema = new Schema({
     postal_code: { type: String, required: true },
     area: { type: String, required: true }, //! Numbers leading with 0 can't be used as a number field
   },
-  size: { type: String },
-  transactions: {
+  size: { type: Number },
+  transactions: [{
     date: { type: Date, default: Date.now },
     unit_type: { type: String },
     units_sold: { type: Number },
@@ -18,8 +18,8 @@ const directorySchema = new Schema({
       price: {type: String},
       psf: {type: String}
     }
-  },
-  listings: {
+  }],
+  listings: [{
     date: { type: Date, default: Date.now },
     unit_type: { type: String },
     units_sold: { type: Number },
@@ -28,8 +28,12 @@ const directorySchema = new Schema({
       price: {type: String},
       psf: {type: String}
     }
-  },
-  nearby_amenities: { type: String },
+  }],
+  nearby_amenities: [{ 
+    amenity_type: {type: String },
+    name: {type: String},
+    distance: {type: Number}
+  }],
 });
 
 const Directory = mongoose.model("Directory", directorySchema);
