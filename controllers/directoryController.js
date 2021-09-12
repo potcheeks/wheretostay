@@ -5,23 +5,23 @@ const Directory = require("../models/directory");
 
 //*=====================SHOW ENTIRE DIRECTORY =======================
 router.get("/", (req, res) => {
-  Directory.find({}, (err, foundPost) => {
+  Directory.find({}, (err, foundDirectory) => {
     if (err) {
       res.status(400).json({ error: err.message });
     }
-    res.status(200).json(foundPost);
+    res.status(200).json(foundDirectory);
   });
 });
 
 //*======================FIND LISTING BY ID========================
 router.get("/:id", (req, res) => {
   const id = req.params.id;
-  Directory.findById(id, (err, foundPost) => {
+  Directory.findById(id, (err, foundListing) => {
     if (err) {
       res.status(StatusCodes.BAD_REQUEST).json({ error: err.message });
     }
-    console.log("post id", foundPost);
-    res.status(StatusCodes.OK).json(foundPost);
+    console.log("listing id", foundListing);
+    res.status(StatusCodes.OK).json(foundListing);
   });
 });
 
