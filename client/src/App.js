@@ -4,8 +4,7 @@ import {useState} from "react";
 import Dropdown from './components/Dropdown';
 
 import AddressData from './components/AddressData';
-import HistoricalActivity from './components/HistoricalActivity';
-import Amenities from './components/Amenities';
+
 
 function App() {
   const queryClient = new QueryClient();
@@ -15,11 +14,10 @@ function App() {
   return (
     <div className="App">
        <QueryClientProvider client={queryClient}>
-         
+
       <Dropdown propertyName={propertyName} setPropertyName={setPropertyName} />
       <AddressData propertyName={propertyName} />
-      <HistoricalActivity propertyName={propertyName}/>
-      <Amenities propertyName={propertyName}/>
+
 
       </QueryClientProvider>
     </div>
