@@ -1,7 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
@@ -26,15 +24,15 @@ const AmenitiesArray = ({property, index, propertyName}) => {
   const classes = useStyles();
   
   return (
-    <Card className={classes.root}>
-      <CardContent>
+   
         <Typography variant="h6" component="h2">
-          {property.amenity_type} <br/>
-          {property.name} <br/>
-          {property.distance}m <br/>
+          <tr>
+          <td>{property.amenity_type} </td>
+          <td>{property.name}  </td>
+          <td>{property.distance}m  </td>
+          </tr>
          </Typography>
-      </CardContent>
-    </Card>
+  
   )
 }
 

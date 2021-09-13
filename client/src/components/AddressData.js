@@ -2,14 +2,18 @@ import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  Typography,
+  Container,
+  Card,
+  CardContent,
+  Grid,
+} from "@material-ui/core";
 
 import ListingArray from "./ListingArray";
 import TransactionArray from "./TransactionArray";
-import AmenitiesArray from './AmenitiesArray';
+import AmenitiesArray from "./AmenitiesArray";
 
 const useStyles = makeStyles({
   root: {
@@ -37,7 +41,6 @@ const AddressData = ({ propertyName }) => {
   const singlePropertyData = propertyList?.data?.filter(
     (property) => property.name === propertyName
   );
-  console.log("this is info from single property", singlePropertyData);
 
   const propertyTransactions = singlePropertyData?.[0]?.transactions;
   const propertyListings = singlePropertyData?.[0]?.listings;
@@ -59,42 +62,79 @@ const AddressData = ({ propertyName }) => {
             </CardContent>
           </Card>
 
-          {propertyTransactions?.map((property, index) => (
-            <>
-              Transactions:
-              <TransactionArray
-                property={property}
-                key={index}
-                propertyName={propertyName}
-              />
-            </>
-          ))}
+          <Card className={classes.root}>
+            <CardContent>
+              <Typography variant="h6" component="h2">
+                <b>Transactions</b>
+                <table class="transactions">
+                <tr>
+                    <td>Date transacted</td>
+                    <td>Unit type</td>
+                    <td>Units rented</td>
+                    <td>Units sold</td>
+                    <td>Price</td>
+                    <td>psf</td>
+                  </tr>
 
-          {propertyListings?.map((property, index) => (
-            <>
-              Listings:
-              <ListingArray
-                property={property}
-                key={index}
-                propertyName={propertyName}
-              />
-            </>
-          ))}
+                {propertyTransactions?.map((property, index) => (
+                  <TransactionArray
+                    property={property}
+                    key={index}
+                    propertyName={propertyName}
+                  />
+                ))}
+                </table>
+                
+              </Typography>
+            </CardContent>
+          </Card>
 
-          {amenitiesData?.map((property, index) => (
-            <>
-              Amenities:
-              <AmenitiesArray
-                property={property}
-                key={index}
-                propertyName={propertyName}
-              />
-            </>
-          ))}
+          <Card className={classes.root}>
+            <CardContent>
+              <Typography variant="h6" component="h2">
+                <b>Listings</b>
+                <table class="listings">
+                  <tr>
+                    <td>Date transacted</td>
+                    <td>Unit type</td>
+                    <td>Units rented</td>
+                    <td>Units sold</td>
+                  </tr>
+                  
+                  {propertyListings?.map((property, index) => (
+                  <ListingArray
+                    property={property}
+                    key={index}
+                    propertyName={propertyName}
+                  />
+                ))}
+                 
+                
+                </table>
+                
+              </Typography>
+            </CardContent>
+          </Card>
 
+          <Card className={classes.root}>
+            <CardContent>
+              <Typography variant="h6" component="h2">
+                <b>Amenities</b>
+                <table class="amenities">
+                {amenitiesData?.map((property, index) => (
+                  <AmenitiesArray
+                    property={property}
+                    key={index}
+                    propertyName={propertyName}
+                  />
+                ))}
+                </table>
+              </Typography>
+            </CardContent>
+          </Card>
         </>
       ) : (
-        <h1>select property</h1>
+        <h3>select property</h3>
       )}
     </div>
   );

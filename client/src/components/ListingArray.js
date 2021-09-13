@@ -1,42 +1,34 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+const ListingArray = ({property}) => {
 
+ 
 
-const ListingArray = ({property, index, propertyName}) => {
-  const classes = useStyles();
-  
+  const useStyles = makeStyles({
+    root: {
+      minWidth: 275,
+    },
+    bullet: {
+      display: "inline-block",
+      margin: "0 2px",
+      transform: "scale(0.8)",
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  });
   return (
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography variant="h6" component="h2">
-          Date transacted: {property.date} <br/>
-          Unit type: {property.unit_type} <br/>
-          Units rented: {property.units_rented} <br/>
-          Units sold: {property.units_sold} <br/>
-         </Typography>
-      </CardContent>
-    </Card>
-  )
-}
+   <tr>
+   <td>{JSON.stringify(property.date).slice(1, 11)} </td>
+        <td>{property.unit_type} </td>
+        <td>{property.units_rented} </td>
+        <td>{property.units_sold} </td>
+   </tr>
+  );
+};
 
 export default ListingArray;
