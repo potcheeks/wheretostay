@@ -1,35 +1,30 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
 
-const TransactionArray = ({property}) => {
-  
-  const useStyles = makeStyles({
-    root: {
-      minWidth: 275,
-    },
-    bullet: {
-      display: "inline-block",
-      margin: "0 2px",
-      transform: "scale(0.8)",
-    },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-  });
+import { makeStyles, Typography, TableCell, TableRow } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 850,
+  },
+});
+
+
+const TransactionArray = ({ property }) => {
+  const classes = useStyles();
 
   return (
-    <tr>
-      <td>{JSON.stringify(property.date).slice(1,11)}</td>
-      <td>{property.unit_type} </td>
-      <td>{property.units_rented}</td>
-      <td>{property.units_sold}</td>
-      <td>$ {property?.transacted_price?.price}</td>
-      <td>{property?.transacted_price?.psf}</td>
-    </tr>
-  )
-}
+    
+    <Typography variant="h6" component="h2">
+      <TableRow>
+        <TableCell>{JSON.stringify(property.date).slice(1, 11)}</TableCell>
+        <TableCell>{property.unit_type} </TableCell>
+        <TableCell>{property.units_rented}</TableCell>
+        <TableCell>{property.units_sold}</TableCell>
+        <TableCell>$ {property?.transacted_price?.price}</TableCell>
+        <TableCell>{property?.transacted_price?.psf}</TableCell>
+      </TableRow>
+    </Typography>
+  );
+};
 
 export default TransactionArray;

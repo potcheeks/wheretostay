@@ -9,6 +9,12 @@ import {
   Card,
   CardContent,
   Grid,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
 } from "@material-ui/core";
 
 import ListingArray from "./ListingArray";
@@ -16,19 +22,22 @@ import TransactionArray from "./TransactionArray";
 import AmenitiesArray from "./AmenitiesArray";
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
+  // root: {
+  //   minWidth: 275,
+  // },
+  // bullet: {
+  //   display: "inline-block",
+  //   margin: "0 2px",
+  //   transform: "scale(0.8)",
+  // },
+  // title: {
+  //   fontSize: 14,
+  // },
+  // pos: {
+  //   marginBottom: 12,
+  // },
+  table: {
+    minWidth: 850,
   },
 });
 
@@ -54,81 +63,89 @@ const AddressData = ({ propertyName }) => {
         <>
           <Card className={classes.root}>
             <CardContent>
-              <Typography variant="h6" component="h2">
-                Address: {singlePropertyData[0]?.address?.street_address}{" "}
+              
+              <b>Address</b> <br/>
+              {singlePropertyData[0]?.address?.street_address}{" "}
                 {singlePropertyData[0]?.address?.postal_code} <br />
                 Size: {singlePropertyData[0]?.size} sqft
-              </Typography>
+           
             </CardContent>
           </Card>
 
           <Card className={classes.root}>
             <CardContent>
-              <Typography variant="h6" component="h2">
-                <b>Transactions</b>
-                <table class="transactions">
-                <tr>
-                    <td>Date transacted</td>
-                    <td>Unit type</td>
-                    <td>Units rented</td>
-                    <td>Units sold</td>
-                    <td>Price</td>
-                    <td>psf</td>
-                  </tr>
-
-                {propertyTransactions?.map((property, index) => (
-                  <TransactionArray
-                    property={property}
-                    key={index}
-                    propertyName={propertyName}
-                  />
-                ))}
-                </table>
+            <b>Transactions</b>
+              <Typography variant="h6" component="table">
                 
+                <Table>
+                  <TableRow>
+                    <TableCell>Date transacted</TableCell>
+                    <TableCell>Unit type</TableCell>
+                    <TableCell>Units rented</TableCell>
+                    <TableCell>Units sold</TableCell>
+                    <TableCell>Price</TableCell>
+                    <TableCell>psf</TableCell>
+                  </TableRow>
+
+                  {propertyTransactions?.map((property, index) => (
+                    <TransactionArray
+                      property={property}
+                      key={index}
+                      propertyName={propertyName}
+                    />
+                  ))}
+                </Table>
               </Typography>
             </CardContent>
           </Card>
 
           <Card className={classes.root}>
             <CardContent>
-              <Typography variant="h6" component="h2">
-                <b>Listings</b>
-                <table class="listings">
-                  <tr>
-                    <td>Date transacted</td>
-                    <td>Unit type</td>
-                    <td>Units rented</td>
-                    <td>Units sold</td>
-                  </tr>
+            <b>Listings</b>
+              <Typography variant="h6" component="table">
+                
+                <Table>
                   
+                  <TableRow>
+                    <TableCell>Date transacted</TableCell>
+                    <TableCell>Unit type</TableCell>
+                    <TableCell>Units rented</TableCell>
+                    <TableCell>Units sold</TableCell>
+                  </TableRow>
+
                   {propertyListings?.map((property, index) => (
-                  <ListingArray
-                    property={property}
-                    key={index}
-                    propertyName={propertyName}
-                  />
-                ))}
-                 
-                
-                </table>
-                
+                    <ListingArray
+                      property={property}
+                      key={index}
+                      propertyName={propertyName}
+                    />
+                  ))}
+                </Table>
               </Typography>
             </CardContent>
           </Card>
 
           <Card className={classes.root}>
             <CardContent>
-              <Typography variant="h6" component="h2">
-                <b>Amenities</b>
-                <table class="amenities">
-                {amenitiesData?.map((property, index) => (
-                  <AmenitiesArray
-                    property={property}
-                    key={index}
-                    propertyName={propertyName}
-                  />
-                ))}
-                </table>
+            <b>Amenities</b>
+              <Typography variant="h6" component="table">
+                
+                <Table>
+
+                  <TableRow>
+                    <TableCell>Amenity type</TableCell>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Distance</TableCell>
+                  </TableRow>
+
+                  {amenitiesData?.map((property, index) => (
+                    <AmenitiesArray
+                      property={property}
+                      key={index}
+                      propertyName={propertyName}
+                    />
+                  ))}
+                </Table>
               </Typography>
             </CardContent>
           </Card>
