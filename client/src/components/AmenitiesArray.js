@@ -1,6 +1,6 @@
 import React from "react";
 
-import { makeStyles, Typography, TableCell, TableRow } from "@material-ui/core";
+import { makeStyles, Typography, TableCell, TableRow, TableBody } from "@material-ui/core";
 
 const useStyles = makeStyles({
   table: {
@@ -12,13 +12,18 @@ const AmenitiesArray = ({ property }) => {
   const classes = useStyles();
 
   return (
-    <Typography variant="h6" component="table">
+
+    <TableBody>
+    {/* <Typography variant="h6" component="table"> */}
+     
       <TableRow>
-        <TableCell>{property.amenity_type} </TableCell>
-        <TableCell>{property.name} </TableCell>
-        <TableCell>{property.distance}m </TableCell>
+      <TableCell>{property.amenity_type} </TableCell>
+      <TableCell>{property.name} </TableCell>
+      <TableCell>{property.distance}m </TableCell>
       </TableRow>
-    </Typography>
+      
+    {/* </Typography> */}
+    </TableBody>
   );
 };
 

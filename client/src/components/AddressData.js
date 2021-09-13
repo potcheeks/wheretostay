@@ -15,6 +15,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Paper
 } from "@material-ui/core";
 
 import ListingArray from "./ListingArray";
@@ -22,23 +23,17 @@ import TransactionArray from "./TransactionArray";
 import AmenitiesArray from "./AmenitiesArray";
 
 const useStyles = makeStyles({
-  // root: {
-  //   minWidth: 275,
-  // },
-  // bullet: {
-  //   display: "inline-block",
-  //   margin: "0 2px",
-  //   transform: "scale(0.8)",
-  // },
-  // title: {
-  //   fontSize: 14,
-  // },
-  // pos: {
-  //   marginBottom: 12,
-  // },
   table: {
-    minWidth: 850,
+    width: 650,
+    
   },
+  root: {
+    marginLeft: "10%",
+    marginRight: "10%",
+    display: "flex",
+    justifyContent: "center",
+    
+  }
 });
 
 const AddressData = ({ propertyName }) => {
@@ -63,21 +58,19 @@ const AddressData = ({ propertyName }) => {
         <>
           <Card className={classes.root}>
             <CardContent>
-              
-              <b>Address</b> <br/>
+              <b>Address</b> <br />
               {singlePropertyData[0]?.address?.street_address}{" "}
-                {singlePropertyData[0]?.address?.postal_code} <br />
-                Size: {singlePropertyData[0]?.size} sqft
-           
+              {singlePropertyData[0]?.address?.postal_code} <br />
+              Size: {singlePropertyData[0]?.size} sqft
             </CardContent>
           </Card>
 
           <Card className={classes.root}>
             <CardContent>
-            <b>Transactions</b>
+              <b>Transactions</b>
               <Typography variant="h6" component="table">
-                
-                <Table>
+              <TableContainer component={Paper}>
+              <Table className={classes.table} aria-label="simple table">
                   <TableRow>
                     <TableCell>Date transacted</TableCell>
                     <TableCell>Unit type</TableCell>
@@ -95,17 +88,18 @@ const AddressData = ({ propertyName }) => {
                     />
                   ))}
                 </Table>
+              </TableContainer>
+               
               </Typography>
             </CardContent>
           </Card>
 
           <Card className={classes.root}>
             <CardContent>
-            <b>Listings</b>
+              <b>Listings</b>
               <Typography variant="h6" component="table">
-                
-                <Table>
-                  
+              <TableContainer component={Paper}>
+              <Table className={classes.table} aria-label="simple table">
                   <TableRow>
                     <TableCell>Date transacted</TableCell>
                     <TableCell>Unit type</TableCell>
@@ -121,17 +115,17 @@ const AddressData = ({ propertyName }) => {
                     />
                   ))}
                 </Table>
+                </TableContainer>
               </Typography>
             </CardContent>
           </Card>
 
           <Card className={classes.root}>
             <CardContent>
-            <b>Amenities</b>
+              <b>Amenities</b>
               <Typography variant="h6" component="table">
-                
-                <Table>
-
+              <TableContainer component={Paper}>
+              <Table className={classes.table} aria-label="simple table">
                   <TableRow>
                     <TableCell>Amenity type</TableCell>
                     <TableCell>Name</TableCell>
@@ -146,6 +140,7 @@ const AddressData = ({ propertyName }) => {
                     />
                   ))}
                 </Table>
+                </TableContainer>
               </Typography>
             </CardContent>
           </Card>
