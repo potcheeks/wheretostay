@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 const directorySchema = new Schema({
   name: { type: String, required: true },
+  area: { type: String } ,
   address: {
     street_address: { type: String, required: true },
-    postal_code: { type: String, required: true },
-    area: { type: String, required: true }, //! Numbers leading with 0 can't be used as a number field
+    postal_code: { type: String, required: true }, //! Numbers leading with 0 can't be used as a number field
+    // area: { type: String, required: true }, 
   },
   size: { type: Number },
   transactions: [{

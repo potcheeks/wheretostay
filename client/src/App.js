@@ -1,8 +1,8 @@
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react";
-import Dropdown from "./components/Dropdown";
 
+import Dropdown from "./components/Dropdown";
 import ContentDisplay from "./components/ContentDisplay";
 
 function App() {

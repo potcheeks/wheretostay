@@ -1,6 +1,6 @@
 import React from "react";
 
-import { makeStyles, Typography, TableCell, TableRow, TableBody } from "@material-ui/core";
+import { makeStyles, TableCell, TableRow, TableBody } from "@material-ui/core";
 
 const useStyles = makeStyles({
   table: {
@@ -14,7 +14,7 @@ const TransactionArray = ({ property }) => {
 
   return (
     <TableBody>
-      {/* <Typography variant="h6" component="h2"> */}
+      
       <TableRow>
         <TableCell>{JSON.stringify(property.date).slice(1, 11)}</TableCell>
         <TableCell>{property.unit_type} </TableCell>
@@ -23,7 +23,7 @@ const TransactionArray = ({ property }) => {
         <TableCell>$ {property?.transacted_price?.price}</TableCell>
         <TableCell>{property?.transacted_price?.psf}</TableCell>
       </TableRow>
-    {/* </Typography> */}
+ 
     </TableBody>
     
   );

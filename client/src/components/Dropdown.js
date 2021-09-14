@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Dropdown = ({ setPropertyName, propertyName }) => {
+const Dropdown = ({ setPropertyName}) => {
   const classes = useStyles();
 
   const { data: propertyList } = useQuery(
@@ -22,21 +22,19 @@ const Dropdown = ({ setPropertyName, propertyName }) => {
     async () => await axios("/directory")
   );
 
-  const propertyData = propertyList?.data;
-  const area = propertyData?.map((property) => property.area);
-  
+  const propertyData = propertyList?.data.map((property) => property);
+
 
   return (
     <div className={classes.addressDisplay}>
+
       <Autocomplete
         id="Property Name"
+        noOptionsText={'Property is not found'}
         autoHighlight
         clearOnEscape
-        options={propertyData
-          ?.map((option) => option.name)
-          .sort((a, b) => a.localeCompare(b))}
-        // groupBy={(option) => option.area}
-        getOptionLabel={(option) => option}
+        options={propertyData}
+        getOptionLabel={(option) => `${option.area}: ${option.name}`}
         onChange={(event, newValue) => {
           setPropertyName(newValue);
         }}

@@ -18,75 +18,59 @@ router.get("/seed", (req, res) => {
   Directory.create(
     
       {
-        name: "Hawaii Towers",
+        name: "Kent Ridge Hill Residences",
         address:
         {
-        street_address: "73 Meyer Road",
-        postal_code: "437898", //! Numbers leading with 0 can't be used as a number field
-        area: "East",
+        street_address: "South Buona Vista Road",
+        postal_code: "118171", //! Numbers leading with 0 can't be used as a number field
+        area: "South",
         },
-        size: 2819,
+        size: 797,
         transactions: [
-          {
-          date: "2021-07-30",
-          unit_type: "2 Br",
-          units_sold: 1,
-          units_rented: 2,
-          transacted_price:
-          {
-            price: "5,005,000",
-            psf: "2,600"
-          }
-        },
-        {
-          date: "2020-06-30",
-          unit_type: "2 Br",
-          units_sold: 1,
-          units_rented: 2,
-          transacted_price: 
-          {
-            price: "5,005,000",
-            psf: "2,600",
-          },
-        }
+        //   {
+        //   date: "2020-04-20",
+        //   unit_type: "5 Br",
+        //   units_sold: 1,
+        //   units_rented: 0,
+        //   transacted_price:
+        //   {
+        //     price: "2,930,000",
+        //     psf: "1,080"
+        //   }
+        // },
       ],
         listings: [
           {
-            date: "2021-08-20",
-            unit_type: "3 Br",
+            date: "2021-09-13",
+            unit_type: "2 Br",
             units_sold: 0,
-            units_rented: 1,
+            units_rented: 0,
             transacted_price: {
-              price: "7,918,000",
-              psf: "2,620",
+              price: "1,465,000",
+              psf: "1,838",
             },
           },
-          {
-            date: "2021-08-30",
-            unit_type: "3 Br",
-            units_sold: 0,
-            units_rented: 1,
-            transacted_price: {
-              price: "7,918,000",
-              psf: "2,620",
-            },
-          },
+          // {
+          //   date: "2020-05-30",
+          //   unit_type: "3 Br",
+          //   units_sold: 1,
+          //   units_rented: 1,
+          //   transacted_price: {
+          //     price: "3,918,000",
+          //     psf: "2,300",
+          //   },
+          // },
         ],
         nearby_amenities: [
           { 
-            amenity_type: "Bus station",
-            name: "91101 Bus Stop",
-            distance: 350,
+            amenity_type: "MRT station",
+            name: "Pasir Panjang MRT",
+            distance: 580,
           },
           { 
-            amenity_type: "Bus station",
-            name: "91201 Bus Stop",
-            distance: 450,
-          },
-          { 
-            amenity_type: "School",
-            name: "Haig Girls Primary",
-            distance: 850,
+            amenity_type: "MRT station",
+            name: "Haw Par Villa MRT",
+            distance: 970,
           },
         ],
       },

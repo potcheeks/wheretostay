@@ -1,6 +1,6 @@
 import React from "react";
 
-import { makeStyles, Typography, TableCell, TableRow } from "@material-ui/core";
+import { makeStyles, TableCell, TableRow } from "@material-ui/core";
 
 const useStyles = makeStyles({
   table: {
