@@ -36,7 +36,7 @@ const Dropdown = ({ setPropertyName}) => {
         options={propertyData}
         getOptionLabel={(option) => `${option.area}: ${option.name}`}
         onChange={(event, newValue) => {
-          setPropertyName(newValue);
+          setPropertyName(newValue?.name);
         }}
         style={{ width: "54%" }}
         renderInput={(params) => (
@@ -47,6 +47,7 @@ const Dropdown = ({ setPropertyName}) => {
             fullWidth
           />
         )}
+        renderOption={(option) => option.name}
       />
     </div>
   );
