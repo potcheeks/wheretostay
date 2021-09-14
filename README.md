@@ -8,7 +8,7 @@ The app allows the user to search for a property and the information is rendered
 
 ## features
 
-Autocomplete search bar that allows user to search by property as well as area.
+Autocomplete search bar that allows user to search by property as well as area. \
 User is prompted when there are no search results.
 Information is displayed in cards by address, listings, transactions and nearby amenities.
 
@@ -24,5 +24,5 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## instructions - backend
-Open [http://localhost:4000](http://localhost:4000) to view backend data.
+Open [http://localhost:4000](http://localhost:4000) to view backend data. \
 MongoURI link is provided in the email.
