@@ -36,7 +36,9 @@ const useStyles = makeStyles({
   }
 });
 
-const AddressData = ({ propertyName }) => {
+const ContentDisplay = ({ propertyName }) => {
+  const classes = useStyles();
+  
   const { data: propertyList } = useQuery(
     ["property-list"],
     async () => await axios("/directory")
@@ -50,11 +52,11 @@ const AddressData = ({ propertyName }) => {
   const propertyListings = singlePropertyData?.[0]?.listings;
   const amenitiesData = singlePropertyData?.[0]?.nearby_amenities;
 
-  const classes = useStyles();
+ 
 
   return (
     <div>
-      {propertyName ? (
+      {propertyName && (
         <>
           <Card className={classes.root}>
             <CardContent>
@@ -145,11 +147,9 @@ const AddressData = ({ propertyName }) => {
             </CardContent>
           </Card>
         </>
-      ) : (
-        <h3>select property</h3>
-      )}
+      ) }
     </div>
   );
 };
 
-export default AddressData;
+export default ContentDisplay;

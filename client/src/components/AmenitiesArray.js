@@ -14,7 +14,7 @@ const AmenitiesArray = ({ property }) => {
   return (
 
     <TableBody>
-    {/* <Typography variant="h6" component="table"> */}
+   
      
       <TableRow>
       <TableCell>{property.amenity_type} </TableCell>
@@ -22,7 +22,7 @@ const AmenitiesArray = ({ property }) => {
       <TableCell>{property.distance}m </TableCell>
       </TableRow>
       
-    {/* </Typography> */}
+ 
     </TableBody>
   );
 };

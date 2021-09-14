@@ -1,24 +1,22 @@
-import './App.css';
+import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import {useState} from "react";
-import Dropdown from './components/Dropdown';
+import { useState } from "react";
+import Dropdown from "./components/Dropdown";
 
-import AddressData from './components/AddressData';
-
+import ContentDisplay from "./components/ContentDisplay";
 
 function App() {
   const queryClient = new QueryClient();
-  const [propertyName, setPropertyName] = useState()
-
+  const [propertyName, setPropertyName] = useState();
 
   return (
     <div className="App">
-       <QueryClientProvider client={queryClient}>
-
-      <Dropdown propertyName={propertyName} setPropertyName={setPropertyName} />
-      <AddressData propertyName={propertyName} />
-
-
+      <QueryClientProvider client={queryClient}>
+        <Dropdown
+          propertyName={propertyName}
+          setPropertyName={setPropertyName}
+        />
+        <ContentDisplay propertyName={propertyName} />
       </QueryClientProvider>
     </div>
   );
